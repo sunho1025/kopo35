@@ -1,0 +1,21 @@
+# Using Python Operator
+# 1. Radius 5.5, Calculate the area of the circle, pi is 3.14
+PI = 3.14
+GRAVITY = 9.8
+
+print((5.5 **2)* PI)
+
+# 2. Comparison of the area of two triangles 'A' and 'B'  
+A = 10 * 4 * (1/2)
+B = 9 * 5 * (1/2)
+print(A == B)
+
+# 3. 'cheol soo' middle score kor_score 95, math_score 88, eng_score 90
+# cheol soo forgot science score, but average score 92
+# what is cheol soo's science score
+ave = 92
+kor = 95
+math = 88
+eng = 90
+sci = (92*4) - (kor+math+eng)
+print("과학점수 :",sci)
