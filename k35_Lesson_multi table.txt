@@ -1,0 +1,32 @@
+# 이중 while문
+# 1)구구단 홀수만, 곱해지는 숫자도 홀수만
+i = 2
+while True : 
+  if i%2 == 1 :
+    print(f'{i}단입니다.')
+    j = 1
+    while True:
+      if j%2 == 1 :
+        print(f'{i} X {j} = {i*j}')
+      if j >= 9 : break
+      j += 1
+      
+  
+  if i >= 9: break
+  i += 1
+
+# 2)구구단 짝수만, 곱해지는 숫자도 짝수만
+i = 2
+while True : 
+  if i%2 == 0 :
+    print(f'{i}단입니다.')
+    j = 1
+    while True:
+      if j%2 == 0 :
+        print(f'{i} X {j} = {i*j}')
+      if j >= 9 : break
+      j += 1
+      
+  
+  if i >= 9: break
+  i += 1
