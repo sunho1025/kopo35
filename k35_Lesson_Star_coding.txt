@@ -4,10 +4,10 @@ n = int(input())
 
 if n < 0:
     print('음수입니다. 다시 입력해주세요.')
-elif n ==0:
+elif n == 0:
     print('0 입니다. 다시 입력해주세요.')
 
-for i in range(0,n + 1):
+for i in range(0, n + 1):
   print('*' * i)
 
 5
