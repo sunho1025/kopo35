@@ -1,0 +1,56 @@
+## Make Vending machine using sentence
+
+# Vendig machine repeats movement
+# Orange juice 100, coffee 200, Cola 200
+# Consumer input 'coin'(int) and 'menu'(int)
+# if inputed coin is smaller than menu price, "잔액이 부족합니다." output
+# if inputed menu is incorrect, "없는 메뉴입니다. 다시 입력해 주세요." output and Re-entered from scratch
+# Return vending machine charge at order start
+menu = ('오렌지 주스','커피','콜라')
+price = (100, 200, 300)
+print('메뉴는 다음과 같습니다.')
+for i in range(len(menu)):
+    print(f'{i + 1}번 {menu[i]} : {price[i]}원')
+print()
+
+while True:
+    try:
+        coin = int(input('동전을 넣으세요.'))
+        if coin < 100:
+            print('100원이상 넣어주세요.')
+            continue
+        try:
+            drink = int(input('음료를 고르세요.'))
+            if drink == 1: # 오렌지 주스
+                if coin >= price[drink - 1]:
+                    remain = coin - price[drink - 1]
+                    print(f'{price[drink - 1]}원입니다. {menu[drink - 1]}가 곧 제공됩니다.')
+                    print(f'거스름 돈은 {remain}원입니다.')
+                else:
+                    print('잔액이 부족합니다.')
+            elif drink == 2: # 커피
+                if coin >= price[drink - 1]:
+                    remain = coin - price[drink - 1]
+                    print(f'{price[drink - 1]}원입니다. {menu[drink - 1]}가 곧 제공됩니다.')
+                    print(f'거스름 돈은 {remain}원입니다.')
+                else:
+                    print('잔액이 부족합니다.')
+            elif drink == 3: # 콜라
+                if coin >= price[drink - 1]:
+                    remain = coin - price[drink - 1]
+                    print(f'{price[drink - 1]}원입니다. {menu[drink - 1]}가 곧 제공됩니다.')
+                    print(f'거스름 돈은 {remain}원입니다.')
+                else:
+                    print('잔액이 부족합니다.')
+            else:
+                    print('없는 메뉴입니다. 다시 입력해 주세요')
+                    continue
+        except:
+            print('메뉴를 확인해 주세요. 고장나기 싫어요')
+            continue
+    except:
+        print('동전을 다시 확인해 주세요. 고장나기 싫어요')
+        continue
+    coin = 0
+    if coin == 0:
+        break
