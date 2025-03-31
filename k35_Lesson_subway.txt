@@ -1,10 +1,31 @@
+from google.colab import files
+f = files.upload()
+
+import openpyxl
+wb = openpyxl.Workbook()
+ws = wb.active
+
 import csv
-f = open('weather.csv', 'w', newline = '')
-wr = csv.writer(f)
 
-wr.writerow(['날짜','요일','날씨','최저기온','최고기온','강수량'])
-wr.writerow(['20230101','월','맑음',-4.3, 3.8, 0])
-wr.writerow(['20230102','화','맑음',-7.4, 0.4, 0])
-wr.writerow(['20230103','수','맑음',-9.0, 0.6, 0])
+with open ('data1.csv',encoding = 'cp949') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        ws.append(row)
 
-f.close()
+ws2 = wb.create_sheet('sheet2')
+with open('data2.csv', encoding = 'cp949') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        ws2.append(row)
+
+ws3 = wb.create_sheet('sheet2')
+with open('data3.csv', encoding = 'cp949') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        ws3.append(row)
+
+ws.title = '서울특별시_지하철 혼잡도 정보'
+ws2.title = '대전교통공사_열차 혼잡도 분석'
+ws3.title = '경기도 의정부시_의정부경전철 혼잡도'
+
+wb.save('traffic.xlsx')
