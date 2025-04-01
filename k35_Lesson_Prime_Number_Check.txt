@@ -12,11 +12,11 @@ def check_prime_num(a):
 try : 
     while True:
         number = int(input('판별할 자연수를 입력하세요'))
-        if number < 1:
-            print('"2"이상의 값을 입력해주세요')
+        if number < 0:
+            print('"1"이상의 값을 입력해주세요')
         else:
             print(check_prime_num(number))
             break
 
 except:
-    print('양수를 입력바랍니다.')
+    print('자연수를 입력바랍니다.')
