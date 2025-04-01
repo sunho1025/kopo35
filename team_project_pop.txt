@@ -53,20 +53,17 @@ for i in range(0,4):
                 region_pop += df[year[i]].loc[n][5]
         region_year[i].append(region_pop)
 
-#for i in range(4):
-#    print(f'{year[i]} 근로인구 절대값 : {total_work[i]}')
-#    print(f'{year[i]} 근로인구 비율 : {total_work_per[i]: .2f}')
-
-#for i in range(4):
-#    print(f'{year[i]} 노인인구 절대값 : {total_old[i]}')
-#    print(f'{year[i]} 노인인구 비율 : {total_old_per[i]: .2f}')
-
-
-#22년-25년 증감률
+# 22년-25년 증감률
 rate = []
 for i in range(len(region)):
     rate.append(((region_year[3][i] - region_year[0][i])/region_year[0][i])*100)
 
 max_index = np.argmax(rate)
 min_index = np.argmin(rate)
-print(f'증감률이 가장 높은 구는 {region[max_index]}, 증감률은 {rate[max_index] : .2f}%, 증감률이 가장 낮은 구는 {region[min_index]}, 증감률은 {rate[min_index] : .2f}%')
+print(f'증감률이 가장 높은 구는 {region[max_index]}, 증감률은 {rate[max_index] : .2f}%,증감률이 가장 낮은 구는 {region[min_index]}, 증감률은 {rate[min_index] : .2f}%')
+
+# 구별 증감률 순위 테이블 작성 및 csv파일 생성
+df1 = pd.DataFrame({'지역' : region, '증감률' : rate})
+df1['순위'] = df1['증감률'].rank(method = 'first',ascending = False)
+df1 = df1.sort_values(by=['순위'])
+df1.to_csv('region_rate.csv', index = False)
