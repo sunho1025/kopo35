@@ -54,21 +54,20 @@ for i in range(0,4):
         region_year[i].append(region_pop)
 
 # 22년-25년 증감률
-region_area = {'종로구': '도심권', '중구': '도심권', '용산구': '도심권',
-    '성동구': '동북권', '광진구': '동북권', '동대문구': '동북권', 
-    '중랑구': '동북권', '성북구': '동북권', '도봉구': '동북권',
-    '강북구': '동북권', '노원구': '동북권', '은평구': '서북권',
-    '서대문구': '서북권', '마포구': '서북권', '양천구': '서남권',
-    '강서구': '서남권', '구로구': '서남권', '금천구': '서남권',
-    '영등포구': '서남권', '동작구': '서남권', '관악구': '서남권',
-    '서초구': '동남권', '강남구': '동남권', '송파구': '동남권', '강동구': '동남권'}
+region_area = {'종로구': 'Central', '중구': 'Central', '용산구': 'Central',
+    '성동구': 'Northeastern', '광진구': 'Northeastern', '동대문구': 'Northeastern', 
+    '중랑구': 'Northeastern', '성북구': 'Northeastern', '도봉구': 'Northeastern',
+    '강북구': 'Northeastern', '노원구': 'Northeastern', '은평구': 'Northwestern',
+    '서대문구': 'Northwestern', '마포구': 'Northwestern', '양천구': 'Southwestern',
+    '강서구': 'Southwestern', '구로구': 'Southwestern', '금천구': 'Southwestern',
+    '영등포구': 'Southwestern', '동작구': 'Southwestern', '관악구': 'Southwestern',
+    '서초구': 'Southeastern', '강남구': 'Southeastern', '송파구': 'Southeastern', '강동구': 'Southeastern'}
 rate = []
 for i in range(len(region)):
     rate.append(((region_year[3][i] - region_year[0][i])/region_year[0][i])*100)
 
 max_index = np.argmax(rate)
 min_index = np.argmin(rate)
-print(f'증감률이 가장 높은 구는 {region[max_index]}, 증감률은 {rate[max_index] : .2f}%,증감률이 가장 낮은 구는 {region[min_index]}, 증감률은 {rate[min_index] : .2f}%')
 
 df1 = pd.DataFrame({'지역' : region, '증감률' : rate})
 df1['권역'] = df1['지역'].map(region_area)
