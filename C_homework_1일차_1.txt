@@ -1,0 +1,12 @@
+// 1 day homework
+#include <stdio.h>
+void main()
+{
+   //c language Example_1
+   int a, b, c;
+   scanf("%d ", &a);
+   scanf("%d ", &b);
+   scanf("%d", &c);
+   
+   printf("(%d + %d) x %d - (%d - %d) / %d = %d", a, b, c, a, b, c, ((a + b) * c) - ((a - b) / c));
+}
