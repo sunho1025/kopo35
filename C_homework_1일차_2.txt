@@ -1,0 +1,14 @@
+// 1 day homework_2
+#include <stdio.h>
+void main()
+{
+   //c language Example_1
+   int a;
+   int sum = 0;
+   scanf("%d", &a);
+   while(a > 0){
+        sum += a % 10;
+        a /= 10;
+   }
+   printf("%d", sum);
+}
