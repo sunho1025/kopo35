@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    srand(time(NULL));
+    int num[7];
+    
+    //create lotto number
+    int i = 0;
+    while(i < 7){
+        // duplication number search and change
+        num[i] = (rand() % 45) + 1;
+        for (int j = 0; j < i ; j++){
+            if (num[i] == num[j]){
+                i--;
+            }
+        }
+        sleep(1);
+        
+        i++;
+    }
+    // Sorting
+    int change;
+    int length = sizeof(num) / sizeof(int);
+    for (int i = 0 ; i < length ; i++){
+        for (int j = 0 ; j < length ; j++){
+            if (num[i] < num[j]){
+                change = num[i];
+                num[i] = num[j];
+                num[j] = change;
+            }
+        }
+    }
+    
+    //print
+    printf("Lotto Numbers : ");
+    for(int i = 0 ; i < 7 ; i++){
+        if (i != 6){
+            printf("%d ",num[i]);
+        }else{
+            printf("  Bonus Number : ");
+            printf("%d",num[i]);
+        }
+        
+    }
+    return 0;
+}
