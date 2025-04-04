@@ -5,7 +5,7 @@
 void main()
 {
     int tmp;
-    int tmp_d;
+    char tmp_category;
     char msg[100];
     printf("Enter Temp : ");
     while(1)
@@ -18,29 +18,40 @@ void main()
             while(getchar() != '\n');
         }
     }
-    tmp_d = tmp/10;
-    switch(tmp_d)
+    if (tmp < 0){
+        tmp_category = 'A'; 
+    } else if (tmp < 5) {
+        tmp_category = 'B';        
+    } else if (tmp < 15) {
+        tmp_category = 'C';
+    } else if (tmp < 25) {
+        tmp_category = 'D';
+    } else if (tmp < 30) {
+        tmp_category = 'E';
+    } else {
+        tmp_category = 'F';
+    }
+    
+    switch(tmp_category)
     {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-            if (tmp < 0) {
-                strcpy(msg, "Warnig Cold! Wear Padded jacket and gloves, hat!");
-            } else if (tmp < 5) {
-                strcpy(msg, "Very Cold! Wear a Heavy coat!");
-            } else if (tmp < 15) {
-                strcpy(msg, "A little Cold! Wear Warm clothes!");
-            } else if (tmp < 25) {
-                strcpy(msg, "Cool Weather! Bring a light outerwear!");
-            } else if (tmp < 30) {
-                strcpy(msg, "it's Sunny! Wear light clothes!");
-            } else {
-                strcpy(msg, "it's too hot! Wear Shorts and short sleeves!");
-            }
+        case 'A':
+            strcpy(msg, "Warnig Cold! Wear Padded jacket and gloves, hat!");
+            break;
+        case 'B':
+            strcpy(msg, "Very Cold! Wear a Heavy coat!");
+            break;
+        case 'C':
+            strcpy(msg, "A little Cold! Wear Warm clothes!");
+            break;
+        case 'D':
+            strcpy(msg, "Cool Weather! Bring a light outerwear!");
+            break;
+        case 'E':
+            strcpy(msg, "it's Sunny! Wear light clothes!");
             break;
         default :
-            strcpy(msg, "Are you alive? Get out of Earth!!");
+            strcpy(msg, "it's too hot! Wear Shorts and short sleeves!");    
+            
     }
     printf("Today Temperature : %dC \n", tmp);
     printf("%s", msg);
