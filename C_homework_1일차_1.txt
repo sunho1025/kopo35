@@ -14,7 +14,6 @@ void main()
            while(getchar() != '\n');
        }
     }
-   ;
    
    printf("Result : (%d + %d) x %d - (%d - %d) / %d = %d", a, b, c, a, b, c, ((a + b) * c) - ((a - b) / c));
 }
