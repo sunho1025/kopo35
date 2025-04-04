@@ -20,15 +20,18 @@ int main()
         
         i++;
     }
-    // Sorting
+    // Sorting - bubble
     int change;
     int length = sizeof(num) / sizeof(int);
-    for (int i = 0 ; i < length ; i++){
-        for (int j = 0 ; j < length ; j++){
-            if (num[i] < num[j]){
-                change = num[i];
-                num[i] = num[j];
-                num[j] = change;
+    for (int i = 0 ; i < length - 1 ; i++)
+    {
+        for (int j = 0 ; j < length - 1 - i ; j++)
+        {
+            if (num[j] > num[j + 1])
+            {
+                change = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = change;
             }
         }
     }
