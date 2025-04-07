@@ -1,11 +1,18 @@
 // 4 day homework_2
 #include <stdio.h>
-#include <math.h>
 void main()
 {
     int num;
-    printf("Enter Number : ");
-    scanf("%d", &num);
+    
+    while(1) {
+        printf("Input Number : ");
+        if (scanf("%d", &num) == 1) {
+             break;
+        } else {
+            printf("Please Repeat Input Number!\n");
+            while(getchar() != '\n');
+        }
+    }        
     
     for (int i = 1; i <= num; i++) {
         for (int k = 1; k < num - i + 1; k++) {
@@ -16,4 +23,5 @@ void main()
         }
         printf("\n");
     }
+    
 }
