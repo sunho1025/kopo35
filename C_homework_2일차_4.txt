@@ -10,7 +10,7 @@ void main()
     printf("Enter Temp : ");
     while(1)
     {
-        if(scanf("%d",&tmp) == 1) {
+        if(scanf("%d", &tmp) == 1) {
             break;
         } else {
             printf("This is not Digt\n");
@@ -18,7 +18,7 @@ void main()
             while(getchar() != '\n');
         }
     }
-    if (tmp < 0){
+    if (tmp < 0) {
         tmp_category = 'A'; 
     } else if (tmp < 5) {
         tmp_category = 'B';        
