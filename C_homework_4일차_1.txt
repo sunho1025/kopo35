@@ -9,8 +9,8 @@ void main()
         printf("Input Number : ");
         if (scanf("%d", &num_m) == 1 && scanf("%d", &num_n)== 1) {
             if (num_m > num_n) {
-                printf("The first input number is greater than the second input number.\n");
-                printf("Please Repeat Input Number!\n");
+            printf("The first input number is greater than the second input number.\n");
+            printf("Please Repeat Input Number!\n");
             } else {
                 break;
             }
@@ -20,10 +20,27 @@ void main()
         }
     }        
     
+    
     for (int i = num_m; i < (num_n + 1); i++) {
-        if (i % 7 == 0 || (i + 3) % 10 == 0) {
+        int n = i;
+        int count = 0;
+        while(n != 0) {
+            n = n/10;
+            ++count;
+        }
+        int flag = 1;
+        int a = i;
+        for (int j = 0; j <= count; j++) {
+            if ((a % 10) == 7) {
+                flag = 0;
+            } else {
+                a /= 10;
+            }
+        }
+        
+        if (i % 7 == 0 || flag == 0) {
             continue;
-        } else if ( i % 5 == 0) {
+        } else if (i % 5 == 0) {
             printf("%d ", i);
             break;
         } else {
