@@ -1,4 +1,5 @@
 // 4 day homework_1
+// 특이한 수열 찾기
 #include <stdio.h>
 void main()
 {
