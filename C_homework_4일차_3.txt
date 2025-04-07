@@ -9,7 +9,12 @@ void main()
     while(1) {
         printf("Input Number : ");
         if (scanf("%d", &num) == 1) {
-             break;
+            if (num < 1) {
+                printf("Please Repeat Input Number!\n");
+                while(getchar() != '\n');    
+            } else {
+                break;   
+            }
         } else {
             printf("Please Repeat Input Number!\n");
             while(getchar() != '\n');
