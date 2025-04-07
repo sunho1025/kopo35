@@ -9,7 +9,7 @@ void main()
     printf("Enter Score : ");
     while(1)
     {
-        if(scanf("%f",&score) == 1) {
+        if(scanf("%f", &score) == 1) {
             break;
         } else {
             printf("This is not Digt\n");
