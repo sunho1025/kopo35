@@ -4,11 +4,11 @@ void main()
 {
    //c language Example_1
    int a = 0, b = 0, c = 0;
-   while(1){
+   while(1) {
        printf("Enter Number 'a, b, c' : ");
-       if (scanf("%d", &a) == 1 && scanf("%d", &b) == 1 && scanf("%d", &c) == 1){
+       if (scanf("%d", &a) == 1 && scanf("%d", &b) == 1 && scanf("%d", &c) == 1) {
            break;
-       }else{
+       } else {
            printf("Incorrect Number...\n");
            printf("Please again Enter Number!\n");
            while(getchar() != '\n');
