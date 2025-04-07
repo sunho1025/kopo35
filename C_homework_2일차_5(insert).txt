@@ -8,11 +8,11 @@ int main()
     
     //create lotto number
     int i = 0;
-    while(i < 7){
+    while(i < 7) {
         // duplication number search and change
         num[i] = (rand() % 45) + 1;
-        for (int j = 0; j < i ; j++){
-            if (num[i] == num[j]){
+        for (int j = 0; j < i ; j++) {
+            if (num[i] == num[j]) {
                 i--;
             }
         }
@@ -23,7 +23,7 @@ int main()
     // Sorting - insert
     int change;
     int length = sizeof(num) / sizeof(int);
-    for (i = 0 ; i < length ; i++){
+    for (i = 0 ; i < length ; i++) {
         int j = i - 1;
         while((num[j] > num[j + 1]) && (j >= 0)) {
             change = num[j];
@@ -35,12 +35,12 @@ int main()
     
     //print
     printf("Lotto Numbers : ");
-    for(int i = 0 ; i < 7 ; i++){
-        if (i != 6){
+    for(int i = 0 ; i < 7 ; i++) {
+        if (i != 6) {
             printf("%d ",num[i]);
-        }else{
+        } else {
             printf("  Bonus Number : ");
-            printf("%d",num[i]);
+            printf("%d", num[i]);
         }
         
     }
