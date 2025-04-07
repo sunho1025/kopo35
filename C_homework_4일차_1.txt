@@ -1,5 +1,4 @@
 // 4 day homework_1
-// 특이한 수열 찾기
 #include <stdio.h>
 void main()
 {
@@ -10,8 +9,8 @@ void main()
         printf("Input Number : ");
         if (scanf("%d", &num_m) == 1 && scanf("%d", &num_n)== 1) {
             if (num_m > num_n) {
-            printf("The first input number is greater than the second input number.\n");
-            printf("Please Repeat Input Number!\n");
+                printf("The first input number is greater than the second input number.\n");
+                printf("Please Repeat Input Number!\n");
             } else {
                 break;
             }
