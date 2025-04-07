@@ -20,7 +20,6 @@ void main()
         }
     }        
     
-    
     for (int i = num_m; i < (num_n + 1); i++) {
         int n = i;
         int count = 0;
