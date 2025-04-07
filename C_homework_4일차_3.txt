@@ -9,22 +9,26 @@ void main()
     while(1) {
         printf("Input Number : ");
         if (scanf("%d", &num) == 1) {
-            if (num < 1) {
-                printf("Please Repeat Input Number!\n");
-                while(getchar() != '\n');    
-            } else {
-                break;   
-            }
+            break;   
         } else {
             printf("Please Repeat Input Number!\n");
             while(getchar() != '\n');
         }
     }        
-    
-    for (int i = 0 ; i < num ; i++) {
-        for (int j = 0 ; j < num - i ; j++) {
-            printf("*");
+    if (num >= 1) { 
+        for (int i = 0 ; i < num ; i++) {
+            for (int j = 0 ; j < num - i ; j++) {
+                printf("*");
+            }
+            printf("\n");
         }
-        printf("\n");
+    } else if (num < 0) {
+        num *= -1;
+        for (int i = 0 ; i < num ; i++) {
+            for (int j = 0 ; j <= i ; j++) {
+                printf("*");
+            }
+            printf("\n");
+        }
     }
 }
