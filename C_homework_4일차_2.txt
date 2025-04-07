@@ -1,4 +1,6 @@
 // 4 day homework_2
+// 숫자 피라미드
+
 #include <stdio.h>
 void main()
 {
