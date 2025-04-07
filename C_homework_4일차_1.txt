@@ -1,0 +1,21 @@
+// 4 day homework_1
+#include <stdio.h>
+void main()
+{
+    int num_m;
+    int num_n;
+    printf("Enter Number : ");
+    scanf("%d", &num_m);
+    scanf("%d", &num_n);
+    
+    for (int i = num_m; i < (num_n + 1); i++) {
+        if (i % 7 == 0 || (i + 3) % 10 == 0) {
+            continue;
+        } else if ( i % 5 == 0) {
+            printf("%d ", i);
+            break;
+        } else {
+            printf("%d ", i);
+        }
+    }
+}
