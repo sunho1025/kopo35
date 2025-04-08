@@ -30,5 +30,7 @@ void main()
             }
             printf("\n");
         }
+    } else {
+        printf("This is \"0\"");
     }
 }
