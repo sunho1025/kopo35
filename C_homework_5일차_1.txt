@@ -1,50 +1,51 @@
 // 5 day homework_1
 // quick sorting
 #include <stdio.h>
-
-void quickSort(int arr[], int x, int y)
-{
-    int start = x;
-    int end = y;
-    int pivot = arr[(start + end) / 2]; //기준값 설정, 배열의 중간 인덱스
+void quicksort(int a[], int start, int end) {
+    if (start >= end) {
+        return;
+    }
+    int left = start;
+    int right = end;
+    int index = (start + end) / 2;
+    int pivot = a[index];
     int temp;
-    do {
-        while (arr[start] < pivot) {    // start를 인덱스로 가지는 배열값이 pivot보다 큰 값을 만나거나 pivot을 만날 때까지 
-            start++;
-        }
-        while (arr[end] > pivot) {   // end를 인덱스로 가지는 배열값이 pivot보다 작은 값을 만나거나 pivot을 만날 때까지 
-            end--;
-        }
-        if (start <= end)    // start가 end보다 왼쪽에 있다면 교환 
-        {
-            temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
-        }
-      } while (start<= end);    // start가 end 보다 오른쪽에 있을 때까지 반복 
     
+    while (left <= right) {
+        while (a[left] < pivot) { //pivot보다 작은 값을 탐색, 큰 값이 나오면 종료
+            left++;
+        }
+        while (a[right] > pivot) { //pivot보다 큰 값을 탐색, 작은 값이 나오면 종료
+            right--;
+        }
+        if (left <= right) { // 위 두가지 while문을 통해서 교환해야할
+            temp = a[left];  // 큰수와 작은수의 인덱스를 확인하였고 그 두수를 교환
+            a[left] = a[right];
+            a[right] = temp;
+            
+            left++;  //교환이 끝나면 인덱스를 변경시켜줌
+            right--;
+            //종료시점에서는 left가 right보다 크게 변함
+        }
+    } // 이부분 까지 pivot을 기준으로 파티셔닝닝
     
-    if (x < end) {
-        quickSort(arr, x, end);    // 왼쪽 배열 재귀적으로 반복 
-    }
-    if (start < y) {
-        quickSort(arr, start, y);    // 오른쪽 배열 재귀적으로 반복 
-    }
+    //재귀호출
+    quicksort(a, start, right);  //right는 pivot보다 작은 수의 끝 인덱스를 나타냄
+    quicksort(a, left, end);  //left는 pivot보다 큰 수의 처음 인덱스를 나타냄냄
 }
-void main() {
-    int arr[10] = {6, 1, -4, 10, 5, 2, 8, 9, -3, 3};
-    int len = sizeof(arr) / sizeof(int);
-    printf("정렬 전 : ");
-    for (int i = 0; i < len; i++) {
-        printf("%d ", arr[i]);
+
+int main()
+{
+    int a[5] = {2, 9, 7, 1, 3};
+    int end = sizeof(a)/sizeof(int);
+    for (int i = 0; i < end; i++) {
+        printf("%d ", a[i]);
     }
     printf("\n");
+    quicksort(a, 0, end - 1);
     
-    quickSort(arr, 0, len-1);
-    printf("정렬 후 : ");
-    for (int i = 0; i < len; i++) {
-        printf("%d ", arr[i]);
+    for (int i = 0; i < end ; i++) {
+        printf("%d ", a[i]);
     }
+    return 0;
 }
