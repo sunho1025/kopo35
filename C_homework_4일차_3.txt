@@ -16,16 +16,16 @@ void main()
         }
     }        
     if (num >= 1) { 
-        for (int i = 0 ; i < num ; i++) {
-            for (int j = 0 ; j < num - i ; j++) {
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num - i ; j++) {
                 printf("*");
             }
             printf("\n");
         }
     } else if (num < 0) {
         num *= -1;
-        for (int i = 0 ; i < num ; i++) {
-            for (int j = 0 ; j <= i ; j++) {
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j <= i; j++) {
                 printf("*");
             }
             printf("\n");
