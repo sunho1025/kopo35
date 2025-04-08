@@ -1,5 +1,6 @@
 // 5 day homework_1
 // quick sorting
+
 #include <stdio.h>
 void quicksort(int a[], int start, int end) {
     if (start >= end) {
@@ -37,7 +38,7 @@ void quicksort(int a[], int start, int end) {
 int main()
 {
     int a[5] = {2, 9, 7, 1, 3};
-    int end = sizeof(a)/sizeof(int);
+    int end = sizeof(a) / sizeof(int);
     for (int i = 0; i < end; i++) {
         printf("%d ", a[i]);
     }
