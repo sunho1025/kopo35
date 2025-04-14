@@ -5,7 +5,7 @@
 struct student {
     char name[50];
     int age;
-    char sex;
+    char gender;
     char hobby[100];
 	};
 
@@ -17,22 +17,19 @@ struct student students[1000] = {
 void printer(int *p) {
 	int i = 0;
 	for (i = 0; i < *p ; i++) {
-            printf("[No %d] %s, %d, %c, %s\n", i + 1, students[i].name, students[i].age, students[i].sex, students[i].hobby);
+            printf("[No %d] %s, %d, %c, %s\n", i + 1, students[i].name, students[i].age, students[i].gender, students[i].hobby);
     }
 }
 
 void student_info() {
-	int i;	
+    int i;	
     int count = 3;
     int *p = &count;
     char stop;
 
     while (true) {
         printf("=== 학생 목록 ===\n");
-        for (i = 0; i < count; i++) {
-            printf("[No %d] %s, %d, %c, %s\n", i + 1, students[i].name, students[i].age, students[i].sex, students[i].hobby);
-        }
-
+        printer(&count);
         printf("\nInsert new student information.\n");
         printf("name : ");
         while(true) {
@@ -41,7 +38,8 @@ void student_info() {
         	} else {
         		printf("Only String Input\n");
         		printf("Input again\n");
-				continue;
+        		while(getchar() != '\n');
+			continue;
 			}
 		}
 
@@ -52,24 +50,27 @@ void student_info() {
         	} else {
         		printf("Only Digit Input\n");
         		printf("Input again\n");
-				continue;
+        		while(getchar() != '\n');
+			continue;	
 			}
 		}
 
-        printf("sex(M/F): ");
+        printf("gender(M/F): ");
         while(true) {
-        	if (scanf(" %c", &students[count].sex) == 1) {
-        		if (students[count].sex == 'M' ||students[count].sex == 'm'||students[count].sex == 'F'||students[count].sex == 'f' ){
-					break;
-				} else {
-					printf("Only \'M or F\' Input\n");
+        	if (scanf(" %c", &students[count].gender) == 1) {
+        		if (students[count].gender == 'M' ||students[count].gender == 'm'||students[count].gender == 'F'||students[count].gender == 'f' ) {
+				break;
+			} else {
+				printf("Only \'M or F\' Input\n");
         			printf("Input again\n");
-					continue;
-				}
+        			while(getchar() != '\n');
+				continue;
+			}
         	} else {
         		printf("Only Character Input\n");
         		printf("Input again\n");
-				continue;
+        		while(getchar() != '\n');
+			continue;
 			}
 		}
         printf("hobby: ");
@@ -79,6 +80,7 @@ void student_info() {
         	} else {
         		printf("Only String Input\n");
         		printf("Input again\n");
+        		while(getchar() != '\n');
 				continue;
 			}
 		}
