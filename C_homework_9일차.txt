@@ -70,7 +70,7 @@ void gender(int *p) {
 //union으로 hobby와 etc받기 
 void string_info(int *p) {
 	union info_input {
-    	char str[100]; 
+		char str[100]; 
 	};
     union info_input temp;
     printf("hobby: ");
@@ -99,18 +99,18 @@ void string_info(int *p) {
 //입력받은 정보를 출력 
 void student_info() {
 	int i;	
-    int count = 3;
-    int *p = &count;
-    char stop;
+	int count = 3;
+	int *p = &count;
+	char stop;
 
     while (TRUE) {
         printf("=== 학생 목록 ===\n");
         printer(p);
         printf("\nInsert new student information.\n");
         
-		name(p);
-        age(p);
-		gender(p);
+	name(p);
+	age(p);
+	gender(p);
         string_info(p);
 
         count++;
@@ -119,7 +119,9 @@ void student_info() {
         printf("Do you insert continuously? (y / n): ");
         scanf(" %c", &stop);
 
-        if (stop == 'n' || stop == 'N') break;
+        if (stop == 'n' || stop == 'N') {
+            break;
+        }
     }
 }
 
