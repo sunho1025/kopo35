@@ -31,7 +31,7 @@ void name(int *p) {
         } else {
         	printf("Only String Input\n Input again\n");
         	while(getchar() != '\n');
-			continue;
+		continue;
 		}
 	}
 }
@@ -44,7 +44,7 @@ void age(int *p) {
         } else {
         	printf("Only Digit Input\n Input again\n");
         	while(getchar() != '\n');
-			continue;
+		continue;
 		}
 	}
 }
@@ -54,18 +54,18 @@ void gender(int *p) {
     while(TRUE) {
         if (scanf(" %c", &students[*p].gender) == 1) {
         	if (students[*p].gender == 'M' ||students[*p].gender == 'm'||students[*p].gender == 'F'||students[*p].gender == 'f' ){
-				break;
-			} else {
-				printf("Only \'M or F\' Input\n Input again\n");
+			break;
+		} else {
+			printf("Only \'M or F\' Input\n Input again\n");
         		while(getchar() != '\n');
-				continue;
-			}
+			continue;
+		}
         } else {
         	printf("Only String Input\nInput again\n");
         	while(getchar() != '\n');
-			continue;
-		}
-	}	
+		continue;
+	}
+    }	
 }
 //union으로 hobby와 etc받기 
 void string_info(int *p) {
