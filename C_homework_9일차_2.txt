@@ -34,3 +34,4 @@ void main(){
 	printf("%d\n", m.intval);
 	printf("%f\n", m.floatval);
 	printf("%c\n", m.charval);
+}
