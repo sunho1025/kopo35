@@ -10,20 +10,20 @@ union multi_val m;
 void int_input() {
 	printf("정수입력 >> ");
 	scanf("%d",&m.intval);
-	printf("%d  %d\n", m.intval, &m.intval);
+	printf("%d  %p\n", m.intval, &m.intval);
 }
 
 void float_input(){
 	printf("실수입력 >> ");
 	scanf("%f",&m.floatval);
-	printf("%f  %d\n", m.floatval, &m.floatval);
+	printf("%f  %p\n", m.floatval, &m.floatval);
 	while(getchar() != '\n');
 }
 
 void char_input(){
 	printf("문자입력 >> ");
 	scanf("%c",&m.charval);
-	printf("%c  %d\n", m.charval, &m.charval);
+	printf("%c  %p\n", m.charval, &m.charval);
 }
 
 void main(){
@@ -34,4 +34,3 @@ void main(){
 	printf("%d\n", m.intval);
 	printf("%f\n", m.floatval);
 	printf("%c\n", m.charval);
-}
