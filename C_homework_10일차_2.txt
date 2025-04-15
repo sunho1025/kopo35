@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void main() {
-	enum Car {SEDAN=1, SUV, TRUCK, VAN};
+	enum Car {SEDAN = 1, SUV, TRUCK, VAN};
 	
 	int car;
 	printf("원하시는 차량종류를 입력해주세요>> ");
