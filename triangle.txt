@@ -26,6 +26,5 @@ void triangle(int num) {
 }
 
 void main() {
-	int num = input_num();
-	triangle(num);
+	triangle(input_num());
 }
