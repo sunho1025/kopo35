@@ -2,6 +2,8 @@
 #include <time.h>
 #define TRUE 1
 
+int day_month[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
 int is_leap(int yyyy) {
 	if (yyyy % 400 == 0) {
 		return 1;
@@ -14,7 +16,6 @@ int is_leap(int yyyy) {
 int date_to_days(int year, int month, int day) {
     int days = 0;
     int y, m;
-    int day_month[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     for (y = 1; y < year; y++) {
         days += 365 + is_leap(y);
@@ -50,23 +51,34 @@ void day_input() {
     
 	int days; 
 	while(TRUE) {
-		printf("\n\n날짜를 입력해주세요 (예: 20250615) >> ");
+		printf("\n\n날짜를 입력해주세요\n(Ex: 20250615) >> ");
     	if(scanf("%d", &days) == 1) {
-    		int target_year = extract_year(days);
-    		int target_month = extract_month(days);
-    		int target_day = extract_day(days);
-    		if (target_year < 10000 && (target_month < 13 && target_month > 0) && (target_day > 0 && target_day < 32)) {
-    			break;
-			} else {
-				printf("8자리를 정확히 입력해주세요!\n"); 
+    		int check_year = extract_year(days);
+    		int check_month = extract_month(days);
+    		int check_day = extract_day(days);
+    		if (sizeof(check_year) / sizeof(int) < 5 && (check_year > 0)){
+    			if(sizeof(check_month) / sizeof(int) < 3 && (check_month < 13 && check_month > 0)) {
+    				if (sizeof(check_day) / sizeof(int) < 3 && (check_day > 0 && check_day <= day_month[check_month]))  {
+    					break;
+					} else {
+						printf("일자가 잘못 입력되었습니다.\n다시 입력해주세요.\n"); 
+						while(getchar() !='\n');
+						continue;
+					}
+				} else {
+					printf("월이 잘못 입력되었습니다.\n다시 입력해주세요.\n"); 
+					while(getchar() !='\n');
+					continue;	
+				}
+			}  else {
+				printf("8자리 입력해주세요.\n다시 입력해주세요.\n"); 
 				while(getchar() !='\n');
-				continue;
-				
+				continue;	
 			} 
 		} else {
-			printf("숫자만 입력해주세요.\n"); 
-			while(getchar() !='\n');
-			continue;
+				printf("숫자만 입력해주세요.\n"); 
+				while(getchar() !='\n');
+				continue;
 		}
     }
     int target_year = extract_year(days);
@@ -121,7 +133,6 @@ char* character_month(int mm) {
 }
 //월별 마지막 일자 
 int get_day_month(int yyyy, int mm) {
-	int day_month[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	day_month[Feb] += is_leap(yyyy);
 	return day_month[mm];
 }
@@ -138,7 +149,7 @@ int get_day(int yyyy, int mm) {
 	}
 	return (1 + past) % 7;
 }
-//달력 출력 
+//달력 출력 - enum 이용 영문 월 표기 
 void print_calendar(int start_day, int last_day, int yyyy, int mm) {
 	int i;
 	int day;
@@ -200,6 +211,7 @@ int month_input() {
 	}
 	return m;
 }
+
 void main () {
 	int yyyy, mm;
 	yyyy = year_input();
