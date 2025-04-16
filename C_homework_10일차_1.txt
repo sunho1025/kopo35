@@ -86,7 +86,12 @@ void day_input() {
     int target_day = extract_day(days);
     int today_days = date_to_days(current_year, current_month, current_day);
     int target_days = date_to_days(target_year, target_month, target_day);
-	printf("D-day : %d일\n", target_days - today_days);
+    int dday = today_days - target_days;
+    if(dday < 0) {
+        printf("D-day : D-%d일\n", dday*(-1));
+    } else {
+        printf("D-day : D+%d일\n", dday);
+    }
 }
 
 enum Month {Jan=1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
