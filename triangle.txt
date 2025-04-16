@@ -9,7 +9,6 @@ int input_num() {
 	scanf("%d", &n);
 	return n;
 }
-
 void triangle(int num) {
 	int i, j, k;
 	k = 1;
@@ -24,7 +23,6 @@ void triangle(int num) {
 		printf("\n");
 	}
 }
-
 void main() {
 	triangle(input_num());
 }
