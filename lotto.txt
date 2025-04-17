@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_LINE 256
-#define MAX_NUM 1000
+#define MAX_NUM 10000
 
 struct lotto {
     int one, two, three, four, five, six, bonus, total;
