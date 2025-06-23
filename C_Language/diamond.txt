@@ -1,0 +1,47 @@
+#include <stdio.h>
+int input_num() {
+	int n; 
+	while(1) {
+		printf("원하는 숫자를 입력하세요 >> ");
+		if (scanf("%d", &n) == 1) {
+			if (n % 2 == 0) {
+				printf("홀수를 입력해주세요.\n");
+				while(getchar() != '\n');
+				continue;
+			} else {
+				break;
+			}
+		} else {
+			printf("숫자를 입력해주세요.\n");
+			while(getchar() != '\n');
+			continue;
+		}
+	}
+	return n;
+}
+
+void diamond(int n) {
+	int i, j, k;
+	for (i = 0; i < n; i += 2) {
+		for (j = 0; j < n - i; j++) {
+			printf(" ");
+		}
+		for (j = 0; j < i + 1; j += 1) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	for (i = 0; i < n-2; i += 2) {
+		for (j = 0; j < i + 3; j++) {
+			printf(" ");
+		}
+		for (j = 0; j < n - 2 - i; j+=1) {
+			printf("* ");
+		}
+		printf("\n");
+	}	
+}
+
+void main() {
+	diamond(input_num());
+} 

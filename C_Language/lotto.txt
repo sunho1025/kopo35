@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LINE 256
+#define MAX_NUM 10000
+//전체 당첨 회차별 합의 최소값, 최대값,  평균값 
+struct lotto {
+    int one, two, three, four, five, six, bonus;
+    int total, min, max;
+    float avg;
+};
+
+void lotto_analysis() {
+	int i;
+    FILE *fp = fopen("lotto.csv", "r");
+    if (!fp) {
+        printf("파일 열기 실패");
+    }
+
+    char header[MAX_LINE];
+    fgets(header, sizeof(header), fp);
+    
+    struct lotto lotto_num[MAX_NUM];
+    int count = 0;
+
+	char line[MAX_LINE];
+    while (fgets(line, sizeof(line), fp) != NULL && count < MAX_NUM) {
+        int nums[7];
+        char *char_num = strtok(line, ",");
+        for (i = 0; i < 7; i++) {
+            if (char_num == NULL) break;
+            nums[i] = atoi(char_num);
+            char_num = strtok(NULL, ",");
+        }
+
+        lotto_num[count].one   = nums[0];
+        lotto_num[count].two   = nums[1];
+        lotto_num[count].three = nums[2];
+        lotto_num[count].four  = nums[3];
+        lotto_num[count].five  = nums[4];
+        lotto_num[count].six   = nums[5];
+        lotto_num[count].bonus = nums[6];
+        lotto_num[count].total = nums[0] + nums[1] + nums[2] + nums[3] + nums[4] + nums[5] + nums[6];
+        lotto_num[count].avg = (nums[0] + nums[1] + nums[2] + nums[3] + nums[4] + nums[5] + nums[6])/7.0;
+        int min = 99;
+        int max = 0;
+        for (i = 0; i < 7; i++) {
+    		if(nums[i]< min) {
+				min = nums[i];
+        	}
+        	if(nums[i] > max) {
+				max = nums[i];
+        	}
+		}
+		
+		lotto_num[count].min = min;
+        lotto_num[count].max = max;
+		
+        count++;
+    }
+
+    fclose(fp);
+    
+	int total_min = 999;
+	int total_max = 0;
+	int total_sum = 0;
+
+	for (i = 0; i < count; i++) {
+    	if(lotto_num[i].total< total_min) {
+			total_min = lotto_num[i].total;
+        }
+        if(lotto_num[i].total > total_max) {
+			total_max = lotto_num[i].total;
+        }
+        total_sum += lotto_num[i].total;
+	}
+	float total_avg = total_sum / (count + 0.0);
+	
+	printf("[전체 담청 회차별 합 최소값: %3d / 최대값 : %03d / 평균값 : %03.2f]\n", total_min, total_max, total_avg);
+    printf(" 1   2   3   4   5   6  보너스\n");
+    for (i = 0; i < count; i++) {
+        printf("%2d  %2d  %2d  %2d  %2d  %2d   %2d    ---> 합: %3d  최소값 %2d  최대값 %2d 평균 %5.2f\n",
+               lotto_num[i].one, lotto_num[i].two, lotto_num[i].three, lotto_num[i].four, lotto_num[i].five, lotto_num[i].six, lotto_num[i].bonus, lotto_num[i].total, lotto_num[i].min, lotto_num[i].max, lotto_num[i].avg);
+    }
+}
+
+void main() {
+	lotto_analysis();
+}

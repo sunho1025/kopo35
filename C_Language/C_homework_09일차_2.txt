@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+union multi_val {
+	int intval;
+	float floatval;
+	char charval;
+};
+union multi_val m;
+
+void int_input() {
+	printf("정수입력 >> ");
+	scanf("%d",&m.intval);
+	printf("%d  %p\n", m.intval, &m.intval);
+}
+
+void float_input(){
+	printf("실수입력 >> ");
+	scanf("%f",&m.floatval);
+	printf("%f  %p\n", m.floatval, &m.floatval);
+	while(getchar() != '\n');
+}
+
+void char_input(){
+	printf("문자입력 >> ");
+	scanf("%c",&m.charval);
+	printf("%c  %p\n", m.charval, &m.charval);
+}
+
+void main(){
+	int_input();
+	float_input();
+	char_input();
+	printf("\n최종 union 맴버값 출력\n");
+	printf("%d\n", m.intval);
+	printf("%f\n", m.floatval);
+	printf("%c\n", m.charval);
+}

@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+#define true 1
+
+struct student {
+    char name[50];
+    int age;
+    char gender;
+    char hobby[100];
+	};
+
+struct student students[1000] = {
+        {"hong", 30, 'M', "soccer"},
+        {"kim", 30, 'M', "music"},
+        {"park", 30, 'F', "movie"}
+    };
+void printer(int *p) {
+	int i = 0;
+	for (i = 0; i < *p ; i++) {
+            printf("[No %d] %s, %d, %c, %s\n", i + 1, students[i].name, students[i].age, students[i].gender, students[i].hobby);
+    }
+}
+
+void student_info() {
+    int i;	
+    int count = 3;
+    int *p = &count;
+    char stop;
+
+    while (true) {
+        printf("=== 학생 목록 ===\n");
+        printer(&count);
+        printf("\nInsert new student information.\n");
+        printf("name : ");
+        while(true) {
+        	if (scanf("%s", students[count].name) == 1) {
+        		break;
+        	} else {
+        		printf("Only String Input\n");
+        		printf("Input again\n");
+        		while(getchar() != '\n');
+			continue;
+			}
+		}
+
+        printf("age : ");
+        while(true) {
+        	if (scanf("%d", &students[count].age) == 1) {
+        		break;
+        	} else {
+        		printf("Only Digit Input\n");
+        		printf("Input again\n");
+        		while(getchar() != '\n');
+			continue;	
+			}
+		}
+
+        printf("gender(M/F): ");
+        while(true) {
+        	if (scanf(" %c", &students[count].gender) == 1) {
+        		if (students[count].gender == 'M' ||students[count].gender == 'm'||students[count].gender == 'F'||students[count].gender == 'f' ) {
+				break;
+			} else {
+				printf("Only \'M or F\' Input\n");
+        			printf("Input again\n");
+        			while(getchar() != '\n');
+				continue;
+			}
+        	} else {
+        		printf("Only Character Input\n");
+        		printf("Input again\n");
+        		while(getchar() != '\n');
+			continue;
+			}
+		}
+        printf("hobby: ");
+        while(true) {
+        	if (scanf("%s", students[count].hobby) == 1) {
+				break;
+        	} else {
+        		printf("Only String Input\n");
+        		printf("Input again\n");
+        		while(getchar() != '\n');
+				continue;
+			}
+		}
+
+        count++;
+		
+        printer(&count);
+        printf("Do you insert continuously? (y/n): ");
+        scanf(" %c", &stop);
+
+        if (stop == 'n' || stop == 'N') break;
+    }
+}
+
+
+void main() {
+
+    student_info();
+}

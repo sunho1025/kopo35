@@ -1,0 +1,59 @@
+// 2 day homework
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+    int tmp;
+    char tmp_category;
+    char msg[100];
+    printf("Enter Temp : ");
+    while(1)
+    {
+        if(scanf("%d", &tmp) == 1) {
+            break;
+        } else {
+            printf("This is not Digt\n");
+            printf("Please Again Enter temp\n");
+            while(getchar() != '\n');
+        }
+    }
+    if (tmp < 0) {
+        tmp_category = 'A'; 
+    } else if (tmp < 5) {
+        tmp_category = 'B';        
+    } else if (tmp < 15) {
+        tmp_category = 'C';
+    } else if (tmp < 25) {
+        tmp_category = 'D';
+    } else if (tmp < 30) {
+        tmp_category = 'E';
+    } else {
+        tmp_category = 'F';
+    }
+    
+    switch(tmp_category)
+    {
+        case 'A':
+            strcpy(msg, "Warnig Cold! Wear Padded jacket and gloves, hat!");
+            break;
+        case 'B':
+            strcpy(msg, "Very Cold! Wear a Heavy coat!");
+            break;
+        case 'C':
+            strcpy(msg, "A little Cold! Wear Warm clothes!");
+            break;
+        case 'D':
+            strcpy(msg, "Cool Weather! Bring a light outerwear!");
+            break;
+        case 'E':
+            strcpy(msg, "it's Sunny! Wear light clothes!");
+            break;
+        default :
+            strcpy(msg, "it's too hot! Wear Shorts and short sleeves!");    
+            
+    }
+    printf("Today Temperature : %dC \n", tmp);
+    printf("%s", msg);
+}
+    

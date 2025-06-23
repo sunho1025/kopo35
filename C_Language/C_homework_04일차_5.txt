@@ -1,0 +1,26 @@
+// 4 day homework_5
+// while 이용 짝수만 출력
+
+#include <stdio.h>
+void main()
+{
+    int num;
+    
+    while(1) {
+        printf("Input Number : ");
+        if (scanf("%d", &num) == 1) {
+             break;
+        } else {
+            printf("Please Repeat Input Number!\n");
+            while(getchar() != '\n');
+        }
+    }        
+    
+    int i = 1;
+    while(i <= num) {
+        if ( i % 2 == 0) {
+            printf("%d ", i);
+        }
+        i++;
+    }
+}
