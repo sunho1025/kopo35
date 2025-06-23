@@ -1,0 +1,22 @@
+# [Lab] Prime Number check
+
+def check_prime_num(a):
+    if a == 1 or a == 2:
+        return True
+    else:
+        for i in range(2, a):
+            if a % i == 0:
+                return False
+            return True
+
+try : 
+    while True:
+        number = int(input('판별할 자연수를 입력하세요'))
+        if number < 0:
+            print('"1"이상의 값을 입력해주세요')
+        else:
+            print(check_prime_num(number))
+            break
+
+except:
+    print('자연수를 입력바랍니다.')

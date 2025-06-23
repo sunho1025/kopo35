@@ -1,0 +1,11 @@
+# Deposit interest
+
+def interest_year(p, r, n):
+    return p * (1 + r) ** n
+
+p = 30000000
+r = 0.051
+n = 3
+result = interest_year(p, r, n)
+
+print(f'원금 : {p}, 이자 : {result - p}')
